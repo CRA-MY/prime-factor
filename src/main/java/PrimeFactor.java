@@ -4,18 +4,19 @@ import java.util.List;
 public class PrimeFactor {
     public List<Integer> of(int number) {
         List<Integer> factors = new ArrayList<>();
-        if (number > 1) {
-            if (number >= 4) {
-                while (number % 2 == 0) {
-                    factors.add(2);
-                    number /= 2;
-                }
-                while (number % 3 == 0) {
-                    factors.add(3);
-                    number /= 3;
-                }
+        while (number % 2 == 0) {
+            factors.add(2);
+            number /= 2;
+        }
+        for (int i = 3; i <= Math.sqrt(number); i += 2) {
+            // i로 나눌 수 있는 만큼 나누기
+            while (number % i == 0) {
+                factors.add(i);
+                number /= i;
             }
-            else factors.add(number);
+        }
+        if (number > 2) {
+            factors.add(number);
         }
         return factors;
     }
