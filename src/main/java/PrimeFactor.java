@@ -9,7 +9,6 @@ public class PrimeFactor {
             number /= 2;
         }
         for (int i = 3; i <= Math.sqrt(number); i += 2) {
-            // i로 나눌 수 있는 만큼 나누기
             while (number % i == 0) {
                 factors.add(i);
                 number /= i;
